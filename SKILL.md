@@ -54,3 +54,34 @@ python public_sentiment_fade.py --set daily_budget_usd=50
 - This is a sentiment-heuristic strategy, not a fundamental football model.
 - Best used alongside your other WC skills as a diversification sleeve.
 - Start in dry-run and calibrate thresholds before going live.
+
+## Deterministic spec (Skill Builder style)
+
+### Signal
+- Crowd-hype proxy from stacked conditions:
+  - crowd entity present
+  - YES already expensive
+  - short-term YES momentum positive
+
+### Entry logic
+- Require `signals >= min_signals`
+- Buy NO with patient GTC ladder near current NO price
+- Enter only when spread/slippage/cooldown/budget gates pass
+
+### Exit logic
+- v0.1 is an entry-focused fade sleeve
+- Exit automation can be added with explicit take-profit/time-stop rules
+
+### Market selection
+- Active Polymarket-imported World Cup/FIFA markets containing team/player entities
+
+### Position sizing
+- Fixed per-market cap `max_position_usd`
+- Ladder split from `limit_splits`
+
+### Risk controls
+- `max_spread`, `max_slippage_pct`
+- `cooldown_hours`
+- `max_trades_per_run`
+- `daily_budget_usd`
+- optional context safeguards (disable with `--no-safeguards`)
