@@ -1,0 +1,15 @@
+{
+  "scan_limit": 400,
+  "import_source": "polymarket",
+  "hype_yes_threshold": 0.72,
+  "hype_momentum_threshold": 0.02,
+  "min_signals": 2,
+  "max_spread": 0.04,
+  "max_slippage_pct": 0.05,
+  "max_position_usd": 10.0,
+  "daily_budget_usd": 35.0,
+  "max_trades_per_run": 3,
+  "cooldown_hours": 24,
+  "limit_offsets_cents": "2,1",
+  "limit_splits": "0.45,0.55"
+}
